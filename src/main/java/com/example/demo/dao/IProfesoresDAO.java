@@ -15,6 +15,6 @@ public interface IProfesoresDAO extends CrudRepository<ProfesoresEntity,Long> {
 	
 	public Optional<ProfesoresEntity> findById(Long id);
 	
-	/*@Query("select p from Profesores p where p.id=?1")
-	public ProfesoresEntity findByIdSQL(Long id);*/
+	@Query("select p from Profesores p where p.id=?1")
+	public ProfesoresEntity findByIdSQL(Long id);
 }
