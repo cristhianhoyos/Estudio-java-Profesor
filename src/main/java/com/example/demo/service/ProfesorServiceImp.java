@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dao.IProfesoresDAO;
 import com.example.demo.entity.ProfesoresEntity;
 
+@Service
 public class ProfesorServiceImp implements IProfesorService {
 
 	@Autowired
@@ -63,11 +65,11 @@ public class ProfesorServiceImp implements IProfesorService {
 		return profesorDao.findById(id).orElse(null);
 	}
 
-	@Override
+	/*@Override
 	@Transactional(readOnly = true)
 	public ProfesoresEntity findByIdSQL(Long id) {
 		return profesorDao.findByIdSQL(id);
-	}
+	}*/
 
 	@Override
 	@Transactional

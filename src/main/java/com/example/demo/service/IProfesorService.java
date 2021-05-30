@@ -27,6 +27,6 @@ public List<ProfesoresEntity> findAll();
 	
 	public ProfesoresEntity findById(Long id);
 	
-	public ProfesoresEntity findByIdSQL(Long id);
+	//public ProfesoresEntity findByIdSQL(Long id);
 
 }

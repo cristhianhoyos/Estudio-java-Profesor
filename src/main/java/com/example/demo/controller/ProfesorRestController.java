@@ -12,11 +12,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.ProfesoresEntity;
+import com.example.demo.mapper.Mapper;
+import com.example.demo.model.MProfesor;
 import com.example.demo.service.IProfesorService;
 
+@RestController
+@RequestMapping("/api")
 public class ProfesorRestController {
 	
 	@Autowired
@@ -77,7 +83,7 @@ public class ProfesorRestController {
 		}
 	}
 	
-	@PutMapping("/update_sql")
+	/*@PutMapping("/update_sql")
 	public ResponseEntity<?> updateProfesorSql(@RequestBody ProfesoresEntity profesor){
 		ProfesoresEntity profesorDb = null;
 		profesorDb = profesorService.findByIdSQL(profesor.getId());
@@ -90,7 +96,7 @@ public class ProfesorRestController {
 		}else {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
-	}
+	}*/
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> deleteProfesor(@PathVariable(value="id")Long id){
