@@ -1,13 +1,18 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,6 +40,18 @@ public class ProfesoresEntity implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="profesor_id",referencedColumnName="id")
+	private List <CursoEntity> curso = new ArrayList<>();
+	
+	public List<CursoEntity> getCurso() {
+		return curso;
+	}
+
+	public void setCurso(List<CursoEntity> curso) {
+		this.curso = curso;
+	}
+
 	public Long getId() {
 		return id;
 	}
